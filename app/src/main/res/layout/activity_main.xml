@@ -1,44 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/tvBluetooth"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bluetooth" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Bluetooth: "
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/tvDeviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_toRightOf="@id/tvBluetooth"
+        android:background="@color/gray200"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:text="Please Select" />
 
     <Button
         android:id="@+id/btConnect"
-        android:layout_toRightOf="@id/tvBluetooth"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:text="Connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/tvPrint"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="30dp"
-        android:layout_below="@id/tvBluetooth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Print" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tvDeviceName"
+        android:text="Connect"
+        android:visibility="gone" />
 
     <Button
-        android:id="@+id/btPrint"
-        android:layout_toRightOf="@id/tvBluetooth"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@id/btConnect"
-        android:text="Connect"
+        android:id="@+id/btDisConnect"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/tvDeviceName"
+        android:text="Disconnect"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivStatus"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/red600"
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <GridLayout
+        android:id="@+id/glPrint"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="4"
+        android:columnCount="3"
+        android:visibility="gone"
+        android:layout_below="@id/tvBluetooth">
+
+        <Button
+            android:id="@+id/btSelfPrint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="Self print"/>
+
+        <Button
+            android:id="@+id/btBeep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="Beep"/>
+
+        <Button
+            android:id="@+id/btHalfCut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="Haft cut"/>
+
+        <Button
+            android:id="@+id/btFullCut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="Full cut"/>
+
+        <Button
+            android:id="@+id/btCodeBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="Code Bar"/>
+
+        <Button
+            android:id="@+id/btQRCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btConnect"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvBluetooth"
+            android:text="QR Code"/>
+    </GridLayout>
 
 </RelativeLayout>
