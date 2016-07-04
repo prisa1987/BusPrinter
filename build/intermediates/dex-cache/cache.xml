@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.6.1_e5f09c2effefbf75a54196d36148265a1f13da77/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="d358a68f721f6d3dc7980740647e554914d0214a">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_7616a2e34f26ab1f2ee0900550742633daf343ac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.github.taskworld.kxandroid/kxandroid-support-v4/0.1.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="6b9a92cc821567f67d847586e7bba4f7b9574377">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.taskworld.kxandroid-kxandroid-support-v4-0.1.4_354574d23642923fe13c22972aae4865bcefd693/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_13329f342cf06fb89a6e32e586d2604e702201fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_7aa31ce79b80b9e2b4ad05192024d45f9808d616/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_b4c40572372db72d347aa1b1a153b1f74404331a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_e9601f3b4756f90642200b8facd135c2b69ca4b7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-runtime/1.0.2/8ec2d49a780ddba5e9b6860a72969e4d5bbc0c55/kotlin-runtime-1.0.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="8ec2d49a780ddba5e9b6860a72969e4d5bbc0c55">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-runtime-1.0.2_39ccce74f4d6c8a986985f9485283ff6ac2763b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="74ca46e7da11e3d065eb64cdbe6568a7ed74c211">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jakewharton-butterknife-8.0.1_2fc0610d14b921dbea8cc4b742fb60926efbd907/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_6d770765e92505d86c96a433c5b3065f991f922f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.github.verachadw/kreference/0.6.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="096327f752ce582121469b03d7eed1a954bb956b">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.verachadw-kreference-0.6.0_7fb78340e55350abde959a935badd2294bda3608/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_f29438831534c4e06ec8c16f61189bfcd3724ddd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/libs/rtdriver.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="e9a617243b7228e2d4e9af0dddfba83ee00230c7">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/2/rtdriver_19717ed58137f94c131da8654f48455703c81a8a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.github.taskworld.kxandroid/kxandroid-support-design/0.1.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="aa576a4c7da0d53cc980d3d00fea72282133c79b">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.taskworld.kxandroid-kxandroid-support-design-0.1.4_f5c3fc5b02bfcc30a60a872c796e134ab6bb76ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.github.taskworld.kxandroid/kxandroid-appcompat-v7/0.1.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="2b908aaeb76698001aa4188c083057887514ded9">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.taskworld.kxandroid-kxandroid-appcompat-v7-0.1.4_a3a9683c7e4951ffb51817beea6e5d58c049b72c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/com.jakewharton.timber/timber/2.5.1/3baf6307dcdc2e35db9c2c616b16faa5fba4917c/timber-2.5.1.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="3baf6307dcdc2e35db9c2c616b16faa5fba4917c">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/timber-2.5.1_3c5ea7d105426bf14bdf23ce481d5dca2991778a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.0.1/345b89f45d02d8b09400b472fab7b7e38f4ede1f/butterknife-annotations-8.0.1.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="345b89f45d02d8b09400b472fab7b7e38f4ede1f">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.0.1_658f0c5c5ae103e476cdbdc03fe8ba9e2b1cbb39/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_dd70e877d3a57c72a02f64041689152d94e3475b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.4.0_9ef9e8b9da7133d71139b4fdebccc2feff957d46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.github.taskworld.kxandroid/kxandroid/0.1.4/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="06995b433292e17f0b0cb659cf977923abd845cc">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.taskworld.kxandroid-kxandroid-0.1.4_5aab60afa82162bddacee4cb59bc29b195398ce3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.0.0-rc-1036/8b4c3dd37b2695d4131666c86c2261c95b762738/kotlin-reflect-1.0.0-rc-1036.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="8b4c3dd37b2695d4131666c86c2261c95b762738">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-reflect-1.0.0-rc-1036_ea0c094e1fabc3b4a3591690e1112f5ab89a87fd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.0.2/22063f19bfd8e50f21fc310842a91ff5b31bb272/kotlin-stdlib-1.0.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="22063f19bfd8e50f21fc310842a91ff5b31bb272">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/kotlin-stdlib-1.0.2_8b82437fee581448df6077047ba8c2a6886f49ae/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="701473be24239856836e6914870a302a4911d12b">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_58fe6dffabfe76a00b780042bfc554bec018a196/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/air_pd2/BusPrinter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/air_pd2/BusPrinter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_a294b85a9384aa08baa04b990697a721e6eec4bf/classes.dex" />
+    </item>
+
+</items>

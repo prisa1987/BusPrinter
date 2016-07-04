@@ -25,21 +25,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PrinterActivity extends AppCompatActivity implements BluetoothPairClickListener, PrinterViewAction{
+public class PrinterActivity extends AppCompatActivity implements BluetoothPairClickListener, PrinterViewAction {
 
     final int REQUEST_ENABLE_BT = 101;
 
-    @BindView(R.id.tvDeviceName) TextView tvDeviceName;
-    @BindView(R.id.btConnect) Button btConnect;
-    @BindView(R.id.btDisConnect) Button btDisConnect;
-    @BindView(R.id.btSelfPrint) Button btPrint;
-    @BindView(R.id.glPrint) GridLayout glPrint;
-    @BindView(R.id.ivStatus) ImageView ivStatus;
+    @BindView(R.id.tvDeviceName)
+    TextView tvDeviceName;
+    @BindView(R.id.btConnect)
+    Button btConnect;
+    @BindView(R.id.btDisConnect)
+    Button btDisConnect;
+    @BindView(R.id.btSelfPrint)
+    Button btPrint;
+    @BindView(R.id.glPrint)
+    GridLayout glPrint;
+    @BindView(R.id.ivStatus)
+    ImageView ivStatus;
 
-    BluetoothAdapter adapter;
-    Set<BluetoothDevice> pairedDevices;
-    BluetoothDevice bluetoothDevice;
-    PrinterManager printerManager;
+    private BluetoothAdapter adapter;
+    private BluetoothDevice bluetoothDevice;
+    private PrinterManager printerManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,7 +64,7 @@ public class PrinterActivity extends AppCompatActivity implements BluetoothPairC
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
             } else {
-                connectToPrinter();
+                openDialog();
             }
         }
     }
@@ -136,6 +141,12 @@ public class PrinterActivity extends AppCompatActivity implements BluetoothPairC
         Toast.makeText(this, "Can't connect, please try again", Toast.LENGTH_SHORT);
     }
 
+
+    private void openDialog() {
+        BluetoothPairDialogFragment dialog = new BluetoothPairDialogFragment();
+        dialog.show(getSupportFragmentManager(), BluetoothPairDialogFragment.class.getName());
+    }
+
     //===============================================
     //Enable bluetooth result
     //===============================================
@@ -145,43 +156,20 @@ public class PrinterActivity extends AppCompatActivity implements BluetoothPairC
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_ENABLE_BT: {
-                    connectToPrinter();
+                    openDialog();
                     break;
                 }
             }
         }
     }
 
-    void connectToPrinter() {
-        pairedDevices = adapter.getBondedDevices();
-
-        //send device name, device address to fragment
-        List<String> deviceNames = new ArrayList<>();
-        List<String> deviceAdddresses = new ArrayList<>();
-
-        for (BluetoothDevice pairedDevice : pairedDevices) {
-            deviceNames.add(pairedDevice.getName());
-            deviceAdddresses.add(pairedDevice.getAddress());
-        }
-
-        BluetoothPairDialogFragment dialog = new BluetoothPairDialogFragment();
-        Bundle bundle = new Bundle();
-        bundle.putStringArrayList(BluetoothPairDialogFragment.ARG_DEVICES_NAME, (ArrayList<String>) deviceNames);
-        bundle.putStringArrayList(BluetoothPairDialogFragment.ARG_DEVICES_ADDRESS, (ArrayList<String>) deviceAdddresses);
-        dialog.setArguments(bundle);
-        dialog.show(getSupportFragmentManager(), BluetoothPairDialogFragment.class.getName());
-    }
 
     @Override
-    public void onChoose(String deviceAddress) {
-        for (BluetoothDevice pairedDevice : pairedDevices) {
-            if (pairedDevice.getAddress().equals(deviceAddress)) {
-                tvDeviceName.setText(pairedDevice.getName());
-                btConnect.setVisibility(View.VISIBLE);
-                bluetoothDevice = pairedDevice;
-                break;
-            }
-        }
+    public void onChoose(BluetoothDevice pairedDevice) {
+        tvDeviceName.setText(pairedDevice.getName());
+        btConnect.setVisibility(View.VISIBLE);
+        bluetoothDevice = pairedDevice;
     }
+
 
 }

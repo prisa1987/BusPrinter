@@ -4,9 +4,13 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import busprinter.com.busprinter.R;
 import butterknife.BindView;
@@ -23,17 +29,16 @@ import butterknife.OnClick;
 
 public class BluetoothPairDialogFragment extends DialogFragment {
 
-    List<String> deviceNames;
-    List<String> deviceAddress;
-    static String ARG_DEVICES_NAME = "arg_devices_name";
-    static String ARG_DEVICES_ADDRESS = "arg_devices_address";
+
+    List<Pair<Integer, Object>> bluetoothDevices = new ArrayList<>();
 
     BluetoothPairAdapter adapter;
-    BluetoothPairClickListener clickListner;
+    BluetoothPairClickListener clickListener;
 
-    private BluetoothAdapter mBluetoothAdapter;
-    private List<BluetoothDevice> pairedDeviceList, foundDeviceList;
-    private BroadcastReceiver mBluetoothReceiver;
+    private BluetoothAdapter bluetoothAdapter;
+
+    private Integer SECTION_TYPE = 0;
+    private Integer DEVICE_TYPE = 1;
 
     @BindView(R.id.rvBluetooth)
     RecyclerView rvBluetooth;
@@ -41,15 +46,12 @@ public class BluetoothPairDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //get Bundle
-        deviceNames = getArguments().getStringArrayList(ARG_DEVICES_NAME);
-        deviceAddress = getArguments().getStringArrayList(ARG_DEVICES_ADDRESS);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        getDialog().setTitle("Paired Bluetooth");
+        getDialog().setTitle("Discovery Bluetooth");
         View view = inflater.inflate(R.layout.dialog_pair_bluetooth, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -61,79 +63,107 @@ public class BluetoothPairDialogFragment extends DialogFragment {
     }
 
     void setUp() {
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
-        clickListner = (BluetoothPairClickListener) getActivity();
         adapter = new BluetoothPairAdapter();
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        bluetoothDevices.add(Pair.<Integer, Object>create(SECTION_TYPE, getString(R.string.pair)));
+        pairBluetoothDevice();
+
+        bluetoothDevices.add(Pair.<Integer, Object>create(SECTION_TYPE, getString(R.string.search)));
+        clickListener = (BluetoothPairClickListener) getActivity();
         rvBluetooth.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rvBluetooth.setAdapter(adapter);
     }
 
-//    //=======================
-//    // Bluetooth
-//    private class BluetoothDeviceReceiver extends BroadcastReceiver {
-//
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            String action = intent.getAction();
-//            // When discovery finds a device
-//            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-//                // Get the BluetoothDevice object from the Intent
-//                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 && device.getType() != BluetoothDevice.DEVICE_TYPE_CLASSIC)
-//                    return;
-//                if (!foundDeviceList.contains(device)) {
-//                    foundDeviceList.add(device);
-//                    adapter.notifyDataSetChanged();
-//                }
-//            } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-//                mBluetoothAdapter.cancelDiscovery();
-//                mContext.unregisterReceiver(mBluetoothReceiver);
-//                mRegistered = false;
-////                tvSearchDevice.setEnabled(true);
-////                progressBar.setVisibility(View.GONE);
-//                if (foundDeviceList.size() == 0) {
+    //=======================
+    // Bluetooth Pair
+    //=======================
+    void pairBluetoothDevice() {
+        Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+        for (BluetoothDevice bluetoothDevice : pairedDevices) {
+            bluetoothDevices.add(Pair.<Integer, Object>create(DEVICE_TYPE, bluetoothDevice));
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    //=======================
+    // Bluetooth Discovery
+    //=======================
+    final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 && device.getType() != BluetoothDevice.DEVICE_TYPE_CLASSIC)
+                    return;
+                if (!bluetoothDevices.contains(device)) {
+                    bluetoothDevices.add(Pair.<Integer, Object>create(DEVICE_TYPE, device));
+                    adapter.notifyDataSetChanged();
+                }
+            } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                bluetoothAdapter.cancelDiscovery();
+                getContext().unregisterReceiver(mReceiver);
+//                if (bluetoothDevices.size() == 0) {
 //                    tvFoundDeviceEmpty.setVisibility(View.VISIBLE);
 //                }
-//            }
-//        }
-//    }
+            }
+        }
+    };
 
-    //=================================
+
+    //=======================
     //Adapter
-    //=================================
+    //=======================
     class BluetoothPairAdapter extends RecyclerView.Adapter {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = layoutInflater.inflate(R.layout.item_pair_bluetooth, parent, false);
-            return new BluetoothViewHolder(view);
+            if (viewType == R.string.section_type) {
+                View view = layoutInflater.inflate(R.layout.item_section_bluetooth, parent, false);
+                return new BluetoothViewHolder(view);
+            } else {
+                View view = layoutInflater.inflate(R.layout.item_pair_bluetooth, parent, false);
+                return new BluetoothViewHolder(view);
+            }
         }
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((BluetoothViewHolder) holder).setDeviceName(deviceNames.get(position));
-            ((BluetoothViewHolder) holder).setAddress(deviceAddress.get(position));
+            if (getItemViewType(position) != R.string.section_type) {
+                BluetoothDevice device = (BluetoothDevice) bluetoothDevices.get(position).second;
+                ((BluetoothViewHolder) holder).setDeviceName(device.getName());
+                ((BluetoothViewHolder) holder).setBlueToothDevice(device);
+            } else {
+                ((BluetoothViewHolder) holder).setDeviceName((String) bluetoothDevices.get(position).second);
+            }
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            if (bluetoothDevices.get(position).first.equals(SECTION_TYPE)) {
+                return R.string.section_type;
+            }
+            return R.string.device_type;
         }
 
         @Override
         public int getItemCount() {
-            return deviceNames.size();
+            return bluetoothDevices.size();
         }
     }
 
-    //=================================
+    //=======================
     //ViewHolder
-    //=================================
+    //=======================
     class BluetoothViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.tvDeviceName)
         TextView tvDeviceName;
+        BluetoothDevice bluetoothDevice;
 
-        String address;
-
-        public BluetoothViewHolder(View itemView) {
+         BluetoothViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
@@ -142,19 +172,27 @@ public class BluetoothPairDialogFragment extends DialogFragment {
             tvDeviceName.setText(name);
         }
 
-        void setAddress(String address) {
-            this.address = address;
+        void setBlueToothDevice(BluetoothDevice bluetoothDevice) {
+            this.bluetoothDevice = bluetoothDevice;
         }
 
         @OnClick(R.id.llDevice)
         void setClick() {
-            clickListner.onChoose(address);
-            dismiss();
+            if (tvDeviceName.getText().toString().equals(getString(R.string.search))) {
+                IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+                bluetoothAdapter.startDiscovery();
+                getContext().registerReceiver(mReceiver, filter);
+            } else if(getItemViewType() == R.string.device_type) {
+                clickListener.onChoose(bluetoothDevice);
+                dismiss();
+            }
+
         }
 
     }
 
 }
+
 interface BluetoothPairClickListener {
-     void onChoose(String deviceName);
+    void onChoose(BluetoothDevice device);
 }

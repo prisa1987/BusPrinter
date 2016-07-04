@@ -2,4 +2,8 @@
     <string name="app_name">BusPrinter</string>
     <string name="connected">Connected</string>
     <string name="unconnected">Unconnected</string>
+    <string name="section_type">Section</string>
+    <string name="device_type">Device</string>
+    <string name="pair">Pair</string>
+    <string name="search">Search</string>
 </resources>
