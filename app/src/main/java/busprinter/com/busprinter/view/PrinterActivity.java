@@ -14,10 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import busprinter.com.busprinter.PrinterManager;
 import busprinter.com.busprinter.PrinterViewAction;
 import busprinter.com.busprinter.R;
@@ -25,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PrinterActivity extends AppCompatActivity implements BluetoothPairClickListener, PrinterViewAction {
+public class PrinterActivity extends AppCompatActivity implements BluetoothMatchingDeviceClickListener, PrinterViewAction {
 
     final int REQUEST_ENABLE_BT = 101;
 
@@ -143,8 +139,8 @@ public class PrinterActivity extends AppCompatActivity implements BluetoothPairC
 
 
     private void openDialog() {
-        BluetoothPairDialogFragment dialog = new BluetoothPairDialogFragment();
-        dialog.show(getSupportFragmentManager(), BluetoothPairDialogFragment.class.getName());
+        BluetoothMatchingDeviceDialogFragment dialog = new BluetoothMatchingDeviceDialogFragment();
+        dialog.show(getSupportFragmentManager(), BluetoothMatchingDeviceDialogFragment.class.getName());
     }
 
     //===============================================
@@ -163,13 +159,11 @@ public class PrinterActivity extends AppCompatActivity implements BluetoothPairC
         }
     }
 
-
     @Override
     public void onChoose(BluetoothDevice pairedDevice) {
         tvDeviceName.setText(pairedDevice.getName());
         btConnect.setVisibility(View.VISIBLE);
         bluetoothDevice = pairedDevice;
     }
-
 
 }

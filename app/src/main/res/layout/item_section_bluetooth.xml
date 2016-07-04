@@ -14,6 +14,17 @@
         android:textStyle="bold"
         tools:text="Pair Device"/>
 
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:visibility="invisible"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_search_dialog"
+        android:tint="@color/gray500"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -21,16 +32,5 @@
         android:layout_marginRight="10dp"
         android:layout_below="@id/tvDeviceName"
         android:background="@color/gray400"/>
-
-    <!--<TextView-->
-    <!--android:id="@+id/tvEmptyPairDevice"-->
-    <!--android:padding="20dp"-->
-    <!--android:textSize="20dp"-->
-    <!--tools:text="No pair device"-->
-    <!--android:textAlignment="center"-->
-    <!--android:visibility="gone"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content" />-->
-
 
 </RelativeLayout>
